@@ -20,10 +20,24 @@ var app = new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
-  data: myData
+  data: myData,
+  created: () => {
+    /*
+      在实例创建完成后被立即调用。
+      在这一步，实例已完成以下的配置：
+      数据观测 (data observer)，
+      属性和方法的运算，
+      watch/event 事件回调。
+      然而，挂载阶段还没开始，$el 属性目前不可见。
+    */
+   console.log('created function this.a = '+this.a)
+   console.log('created function this.$el = '+this.$el)
+  },
+  mounted() {
+    console.log('mounted function this.a = '+this.a)
+    console.log('mounted function this.el = '+this.$el)
+  }
 })
-
-console.log(app.$el)
 
 /*
   除了在vue实例内部显示生命数据外，
