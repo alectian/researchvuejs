@@ -45,6 +45,7 @@ var app = new Vue({
   并且他们之间默认建立了双向数据绑定，
   当修改其中任意一个时，另一个也会一起变化
 */
+
 app.a = 2
 console.log(myData.a)
 myData.a = 3
