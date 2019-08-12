@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <input v-model="name" placeholder='你的名字'>
-    <h1>你好{{ name }}</h1> 
+    <input v-model="text" placeholder='输入文本'>
+    <h1>数据绑定{{ text }}</h1>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App',
-  data() {
-    return {
-      name: ""
+  export default {
+    data() {
+      return{
+        text: ''
+      }
     }
   }
-}
 </script>
