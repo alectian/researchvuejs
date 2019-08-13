@@ -1,18 +1,6 @@
 <template>
   <div id="app">
-    <!-- 语法糖 -->
-    
-    <!-- v-bind缩写 -->
-    <a v-bind:href="url">链接</a>
-    <a :href="url">链接</a>
-    
-    <img v-bind:src="imgUrl"/>
-    <img :src="imgUrl"/>
-    
-    <!-- v-on缩写 -->
-    <button v-on:click="handleClose">按钮</button>
-    <button @click="handleClose">按钮</button>
-    
+   {{ reverseText }}
   </div>
 </template>
 
@@ -20,15 +8,23 @@
   export default{
     data(){
       return{
-        show:false,
-        close:true,
-        url:'https://www.baidu.com',
-        imgUrl:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2174909441,2495215020&fm=26&gp=0.jpg'
+        text:'123,456'
       }
     },
-    methods:{
-      handleClose(){
-        this.close = !this.close
+    // 计算属性
+    /*
+    所有的计算属性都以函数的形式写在computed内，
+    最终返回计算结果
+    在一个计算属性里可以完成各种复杂的逻辑，
+    包括运算、函数调用等，
+    只要是最终返回一个结果就可以，
+    
+    除了以上简单的用法，计算属性还可以依赖多个vue实例的数据，
+    只要其中任一数据变化，计算属性就会重新执行，视图也会更新
+    */
+    computed:{
+      reverseText: function(){
+        return this.text.split(',').reverse().join(',')
       }
     }
   }
